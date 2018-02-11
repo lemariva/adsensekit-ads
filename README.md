@@ -21,3 +21,7 @@ Comming soon...
 ## License
 
 MIT
+
+## Issues and feature requests
+
+Please use the [issues section](https://github.com/lemariva/adsensekit-ads/issues) to file any bugs or feature requests.
