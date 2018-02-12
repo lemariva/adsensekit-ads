@@ -12,7 +12,7 @@ Please install AdsenseKit via the built-in Marketplace in your Pagekit Installat
 
 ## Instructions
 
-Comming soon...
+Coming soon...
 
 ## Change Log
 
