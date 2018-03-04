@@ -33,3 +33,5 @@ Please install AdsenseKit via the built-in Marketplace in your Pagekit Installat
 MIT
 
 ## Issues and feature requests
+
+Please use the [issues section](https://github.com/lemariva/adsensekit-ads/issues) to file any bugs or feature requests.
