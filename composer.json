@@ -2,7 +2,7 @@
   "name": "lemariva/adsensekit",
   "module": "lemariva/adsensekit",
   "type": "pagekit-extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "title": "AdsenseKit",
   "description": "AdsenseKit offers a quicker & flexible way to insert Google Adsense or any Ads code into a blog post.",
   "license": "MIT",
