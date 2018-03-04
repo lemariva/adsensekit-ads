@@ -30,18 +30,16 @@ class AdsenseKitPlugin implements EventSubscriberInterface
         if (!isset($options['id'])) {
             return;
         }
-		$adsensekit = App::module('lemariva/adsensekit');
-		$app = App::getInstance();
-		$ad_id = $options['id'];
-		unset($options['id']);
+        $adsensekit = App::module('lemariva/adsensekit');
+        $app = App::getInstance();
+        $ad_id = $options['id'];
+        unset($options['id']);
 
-		try {
-
-			return $adsensekit->renderAd($app, $ad_id, $options);
-
-		} catch (App\Exception $e) {
-			return $e->getMessage();
-		}
+      	try {
+      		  return $adsensekit->renderAd($app, $ad_id, $options);
+      	} catch (App\Exception $e) {
+      		  return $e->getMessage();
+      	}
 	}
 
     /**

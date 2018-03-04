@@ -43,7 +43,7 @@ class Ads implements \JsonSerializable {
 	public $slug;
 
 	/** @Column(type="integer") */
-	public $priority;
+	public $priority = 0;
 
   /** @Column(type="string") */
   public $adformat = '';
@@ -96,7 +96,7 @@ class Ads implements \JsonSerializable {
 	public function prepareView ($app, $adsensekit) {
 		$ad = $this;
 		$app->on('view.data', function ($event, $data) use ($ad, $adsensekit) {
-			$data->add('$adsensekit', [
+			$data->add('$adsensekit_'.$ad->id, [
 				'aditem' => $ad
 			]);
 		});

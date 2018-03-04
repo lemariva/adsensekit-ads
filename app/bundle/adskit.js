@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
+/******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/ 		}
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -33,15 +33,16 @@
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
-/******/ 	// define getter function for harmony exports
+/******/ 	// identity function for calling harmory imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmory exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
+/******/ 		Object.defineProperty(exports, name, {
+/******/ 			configurable: false,
+/******/ 			enumerable: true,
+/******/ 			get: getter
+/******/ 		});
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -60,39 +61,19 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = {
-    el: '#adsensekit',
-    data: _.assign({
-        aditem: {}
-    }, window.$adsensekit),
-
-    components: {
-        adsensekit: __webpack_require__(1)
-    }
-
-};
-Vue.ready(() => {
-    window.AdsenseKit = new Vue(module.exports);
-});
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 var __vue_script__, __vue_template__
 var __vue_styles__ = {}
-__vue_script__ = __webpack_require__(2)
+__vue_script__ = __webpack_require__(1)
 if (Object.keys(__vue_script__).some(function (key) { return key !== "default" && key !== "__esModule" })) {
   console.warn("[vue-loader] app\\components\\adskit-site.vue: named exports in *.vue files are ignored.")}
-__vue_template__ = __webpack_require__(3)
+__vue_template__ = __webpack_require__(2)
 module.exports = __vue_script__ || {}
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -116,12 +97,12 @@ if (false) {(function () {  module.hot.accept()
   }
 })()}
 
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
 
 "use strict";
-
+'use strict';
 
 module.exports = {
   props: {
@@ -152,16 +133,43 @@ module.exports = {
       required: true
     }
   },
-  ready: function ready() {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  }
+  ready: function ready() {}
 };
 
-/***/ }),
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+module.exports = "\n<ins class=\"adsbygoogle\"\n  :style=\"adStyle\"\n  :data-ad-format=\"adFormat\"\n  :data-ad-layout-key=\"adLayoutKey\"\n  :data-ad-client=\"adClient\"\n  :data-ad-slot=\"adSlot\"></ins>\n";
+
+/***/ },
 /* 3 */
-/***/ (function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-module.exports = "\n<ins class=\"adsbygoogle\" :style=\"adStyle\"\n  :data-ad-format=\"adFormat\"\n  :data-ad-layout-key=\"adLayoutKey\"\n  :data-ad-client=\"adClient\"\n  :data-ad-slot=\"adSlot\"></ins>\n";
+module.exports = {
 
-/***/ })
+};
+
+Vue.ready(() => {
+
+  $('.adsensekit').each(function () {
+     var $el = $(this);
+     var id = $el.attr('data-id');
+     var data = window["$adsensekit_" + id];
+
+    window.AdsenseKit = new Vue({
+       el: this,
+       data: data,
+       components: {
+            adsensekit: __webpack_require__(0)
+       }
+    }
+    );
+    
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  });
+});
+
+
+/***/ }
 /******/ ]);

@@ -46,15 +46,16 @@ return [
 			'url' => '@adsensekit',
 			'access' => 'adsensekit: manage ads',
 			'active' => '@adsensekit(/edit)?'
-		],
-
-		'adsensekit: settings' => [
-				'label' => 'Settings',
-				'parent' => 'blog',
-				'url' => '@adsensekit/settings',
-				'active' => '@adsensekit/settings*',
-				'access' => 'system: access settings'
 		]
+		// ],
+		//
+		// 'adsensekit: settings' => [
+		// 		'label' => 'Settings',
+		// 		'parent' => 'blog',
+		// 		'url' => '@adsensekit/settings',
+		// 		'active' => '@adsensekit/settings*',
+		// 		'access' => 'system: access settings'
+		// ]
 
 	],
 

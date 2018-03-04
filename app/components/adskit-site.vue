@@ -1,5 +1,6 @@
 <template>
-  <ins class="adsbygoogle" :style="adStyle"
+  <ins class="adsbygoogle"
+    :style="adStyle"
     :data-ad-format="adFormat"
     :data-ad-layout-key="adLayoutKey"
     :data-ad-client="adClient"
@@ -37,7 +38,7 @@ module.exports = {
         }
     },
     ready() {
-              (window.adsbygoogle = window.adsbygoogle || []).push({})
+              //(window.adsbygoogle = window.adsbygoogle || []).push({})
     }
 
 }
