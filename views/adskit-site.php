@@ -3,6 +3,7 @@
 $view->script('adskit-site', 'lemariva/adsensekit:app/bundle/adskit-site.js', ['vue','lodash']);
 ?>
 
+<p></p>
 <div class="adsensekit" data-id=<?php echo $id;?>>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <adsensekit :ad-item=aditem
@@ -13,3 +14,4 @@ $view->script('adskit-site', 'lemariva/adsensekit:app/bundle/adskit-site.js', ['
     :ad-slot=aditem.adslot>
   </adsensekit>
 </div>
+<p></p>
