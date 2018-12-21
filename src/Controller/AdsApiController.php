@@ -43,8 +43,8 @@ class AdsApiController {
 			// 		});
 			// }
 
-			if (!preg_match('/^(date|title|comment_count)\s(asc|desc)$/i', $order, $order)) {
-					$order = [1 => 'date', 2 => 'desc'];
+			if (!preg_match('/^(date_start|title|comment_count|date_end)\s(asc|desc)$/i', $order, $order)) {
+					$order = [1 => 'date_start', 2 => 'desc'];
 			}
 
 			$limit = (int) $limit ?: App::module('adsensekit')->config('ads.ads_per_page');

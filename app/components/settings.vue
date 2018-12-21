@@ -15,7 +15,6 @@
             </div>
         </div>
 
-
         <div class="uk-form-row">
             <label class="uk-form-label">{{ 'Ads per page' | trans }}</label>
             <div class="uk-form-controls uk-form-controls-text">

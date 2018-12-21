@@ -67,14 +67,9 @@ class AdsModule extends Module {
 				throw new App\Exception('', 200) ;
 		}
 
-
-
 		$ads->prepareView($app, $this);
 
-
-		//return $app->view($view ?: 'lemariva/adsensekit:views/adskit-site.php');
-
-		 return $app->view()->render('lemariva/adsensekit:views/adskit-site.php', ['id' => $ad_id]);
+		return $app->view()->render('lemariva/adsensekit:views/adskit-site.php', ['id' => $ad_id, 'type' => $ads->adtype]);
 	}
 
 }

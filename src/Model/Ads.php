@@ -10,6 +10,10 @@ use Pagekit\Application as App;
 class Ads implements \JsonSerializable {
 	use AdsModelTrait;
 
+	/* ad types */
+	const AD_TYPE_ADSENSE = 0;
+	const AD_TYPE_IMAGE = 1;
+
 	/* ad draft status. */
 	const STATUS_DRAFT = 0;
 
@@ -45,21 +49,32 @@ class Ads implements \JsonSerializable {
 	/** @Column(type="integer") */
 	public $priority = 0;
 
-  /** @Column(type="string") */
-  public $adformat = '';
+	/** @Column(type="integer") */
+	public $adtype = 0;
 
 	/** @Column(type="string") */
-  public $adlayoutkey = '';
+	public $adsrc_img = '';
 
 	/** @Column(type="string") */
-  public $adclient = '';
+	public $adurl_img = '';
 
 	/** @Column(type="string") */
-	public 	$adslot = '';
+	public $adformat_adsense = '';
+
+	/** @Column(type="string") */
+	public $adlayoutkey_adsense = '';
+
+	/** @Column(type="string") */
+	public $adclient_adsense = '';
+
+	/** @Column(type="string") */
+	public 	$adslot_adsense = '';
 
 	/** @Column(type="datetime") */
-	public $date;
+	public $date_start;
 
+	/** @Column(type="datetime") */
+	public $date_end;
 
 	public static function getStatuses()
 	{
@@ -71,11 +86,26 @@ class Ads implements \JsonSerializable {
 			];
 	}
 
+	public static function getAdsType()
+	{
+		return [
+			self::AD_TYPE_ADSENSE => __('Adsense'),
+			self::AD_TYPE_IMAGE => __('Image')
+		];
+	}
+
 	public function getStatusText()
 	{
 			$statuses = self::getStatuses();
 
 			return isset($statuses[$this->status]) ? $statuses[$this->status] : __('Unknown');
+	}
+
+	public function getAdsText()
+	{
+			$adstypes = self::getAdsType();
+
+			return isset($adstypes[$this->adtype]) ? $adstypes[$this->adtype] : __('Unknown');
 	}
 
 	public function getAuthor()
@@ -85,7 +115,7 @@ class Ads implements \JsonSerializable {
 
 	public function isPublished()
 	{
-			return $this->status === self::STATUS_PUBLISHED && $this->date < new \DateTime;
+			return $this->status === (self::STATUS_PUBLISHED) && ($this->date_start < new \DateTime) && ($this->date_end > new \DateTime);
 	}
 
 	/**

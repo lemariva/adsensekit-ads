@@ -23,7 +23,8 @@ class AdsController {
 			$ad = Ads::create([
 					'user_id' => App::user()->id,
 					'status' => Ads::STATUS_DRAFT,
-					'date' => new \DateTime()
+					'date_start' => new \DateTime(),
+					'date_end' => new \DateTime()
 			]);
 
 		}
@@ -40,7 +41,8 @@ class AdsController {
 			'$data' => [
 				'config' => $adsensekit->config(),
 				'ad' => $ad,
-				'statuses' => Ads::getStatuses()
+				'statuses' => Ads::getStatuses(),
+				'adstypes' => Ads::getAdsType()
 			]
 		];
 	}

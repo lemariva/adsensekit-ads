@@ -46,7 +46,8 @@
                     <th class="pk-table-width-100 uk-text-center" v-order:comment_count="config.filter.order">{{ 'priority' | trans }}</th>
                     <th class="pk-table-width-150">{{ 'Plugin code' | trans }}<a class="uk-icon-info uk-icon-hover uk-margin-small-left"
                         data-uk-tooltip="{delay:200}" :title="'Add this code to any Pagekit content to show the form.' | trans"></a></th>
-										<th class="pk-table-width-100" v-order:date="config.filter.order">{{ 'Date' | trans }}</th>
+					<th class="pk-table-width-100" v-order:date_start="config.filter.order">{{ 'Date Start' | trans }}</th>
+                    <th class="pk-table-width-100" v-order="config.filter.order">{{ 'Date End' | trans }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,10 +72,12 @@
                     <td>
                        <kbd>(adsensekit){"id":"{{ ad.id }}"}</kbd>
                     </td>
-
-										<td>
-												{{ ad.date | date }}
-										</td>
+                    <td>
+                            {{ ad.date_start | date }}
+                    </td>
+                    <td>
+                            {{ ad.date_end | date }}
+                    </td>
                 </tr>
             </tbody>
         </table>

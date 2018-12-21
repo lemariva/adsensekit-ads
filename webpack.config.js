@@ -15,7 +15,7 @@ module.exports = [
         },
 
         module: {
-            loaders: [
+            rules: [
                 {test: /\.vue$/, loader: "vue-loader"},
                 //{test: /\.vue$/, loader: "vue-loader"},
                 //{test: /\.html$/, loader: "vue-html"}
