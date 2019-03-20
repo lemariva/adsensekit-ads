@@ -1,3 +1,6 @@
+# :no_entry: [DEPRECATED] 
+I am very sorry. Unfortunately the Pagekit CMS project is almost dead. My blog is now using OctoberCMS. I am not going to maintain this extensions anymore. If you would like to maintain the extension, please leave me a message. 
+
 # adsensekit
 AdsenseKit for Pagekit offers a quicker &amp; flexible way to insert Google Adsense or any Ads code into a blog post.
 
